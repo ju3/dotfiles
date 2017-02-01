@@ -24,35 +24,78 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'jiangmiao/auto-pairs'
 
+Plugin 'ntpeters/vim-better-whitespace'
+
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+
+Plugin 'airblade/vim-gitgutter'
+
 " End configuration, makes the plugins available
 call vundle#end()
 filetype plugin indent on
 
 " Indentation
-set tabstop=4
-set expandtab
-set shiftwidth=4
+"set tabstop=4
+"set expandtab
+"set shiftwidth=4
+"set autoindent
+"set smartindent
+"set cindent
+
+" Tabs indentation
 set autoindent
-set smartindent
-set cindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+
+""" Spaces as tabs
+"filetype plugin indent on
+"set tabstop=4
+"set shiftwidth=4
+"set expandtab
 
 " Show line numbers
 set number
+
+" Highlight search patterns
+set hlsearch
+"This unsets the 'last search pattern' register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
+" Make search pattern not case sensitive
+set ic
+
+" Highlight line limits
+set colorcolumn=80
+
+" Prevent scrolling lags
+set ttyfast
+set ttyscroll=3
+set lazyredraw
 
 " Toggle invisible characters
 "set list
 "set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 "set showbreak=↪
+" Changed chars
+"set list
+"set listchars=tab:▸\ ,eol:¬
+
+" YCM - Jump to definition
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Key mapping for nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
+" Switch buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 
 " Theme
 set background=dark
 syntax on
 set t_Co=256  " vim-monokai now only support 256 colours in terminal.
-colorscheme monokai
+silent! colorscheme monokai
 
 "let g:ycm_confirm_extra_conf = 0
 
@@ -62,5 +105,12 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = '>'
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
+
+" Speed up gitgutter
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
+" Close current buffer with while NERDtree is open
+nnoremap c :bp\|bd #<CR>
 
 " " }}}
