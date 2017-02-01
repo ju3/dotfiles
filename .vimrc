@@ -111,6 +111,6 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
 " Close current buffer with while NERDtree is open
-nnoremap c :bp\|bd #<CR>
+map <C-c> :bp\|bd #<CR>
 
 " " }}}
