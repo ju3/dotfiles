@@ -34,25 +34,12 @@ Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 filetype plugin indent on
 
-" Indentation
-"set tabstop=4
-"set expandtab
-"set shiftwidth=4
-"set autoindent
-"set smartindent
-"set cindent
 
 " Tabs indentation
 set autoindent
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
-
-""" Spaces as tabs
-"filetype plugin indent on
-"set tabstop=4
-"set shiftwidth=4
-"set expandtab
 
 " Show line numbers
 set number
@@ -113,4 +100,16 @@ let g:gitgutter_eager = 0
 " Close current buffer with while NERDtree is open
 map <C-c> :bp\|bd #<CR>
 
+" Yank to clipboard
+vnoremap <C-y> "+y
+
+" CtrlPMixed
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+" Header for c files
+autocmd bufnewfile *.h so /home/johann/c_header_signature.txt
+autocmd bufnewfile *.c so /home/johann/c_header_signature.txt
+autocmd bufnewfile *.h exe "1," . 10 . "g/file.*/s//file " .expand("%")
+autocmd bufnewfile *.c exe "1," . 10 . "g/file.*/s//file " .expand("%")
 " " }}}
