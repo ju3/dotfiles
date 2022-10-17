@@ -20,6 +20,7 @@ set $term foot
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $appmenu j4-dmenu-desktop | xargs swaymsg exec
 
 ### Output configuration
 #
@@ -77,6 +78,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec
 
     # start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Shift++d exec $appmenu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
