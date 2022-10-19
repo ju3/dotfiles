@@ -215,11 +215,16 @@ bindsym Control+Mod1+Shift+Down move workspace to output down
 bindsym Control+Mod1+Right workspace next
 bindsym Control+Mod1+Left workspace prev
 
+bindsym $mod+Shift+m output * dpms on
+bindsym $mod+Shift+n output * dpms off
+
+set $lockcmd 'swaylock -f -c 222222'
+
 exec swayidle -w \
-    timeout 300 'swaylock -f' \
+    timeout 300 $lockcmd \
     timeout 600 'swaymsg "output * dpms off"' \
-    before-sleep 'swaylock' \
-    resume 'swaymsg "output * dpms on"'
+    before-sleep $lockcmd \
+    after-resume 'sleep 2; swaymsg "output * dpms on"'
 
 #
 # Status Bar:
@@ -245,21 +250,15 @@ include /etc/sway/config.d/*
 #exec systemctl import-environment SWAYSOCK
 include ~/.config/sway/config.d/*
 
-input 2131:308:LEOPOLD_Mini_Keyboard {
-	repeat_delay 150
-	repeat_rate 60
-	xkb_layout us
-	xkb_variant altgr-intl
-	xkb_options caps:ctrl_modifier
-}
-input 1:1:AT_Translated_Set_2_keyboard {
-	repeat_delay 150
-	repeat_rate 60
-	xkb_layout us
-	xkb_variant altgr-intl
-	xkb_options caps:ctrl_modifier
-}
-input 1739:0:Synaptics_TM2722-001 {
+input type:touchpad {
 	tap enabled
 	tap_button_map lrm
+        natural_scroll enabled
+}
+input type:keyboard {
+	repeat_delay 150
+	repeat_rate 60
+	xkb_layout us
+	xkb_variant altgr-intl
+	xkb_options caps:ctrl_modifier
 }
