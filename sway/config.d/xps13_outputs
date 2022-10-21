@@ -1,6 +1,3 @@
-set $laptop "Unknown 0x5B2D 0x00000000"
+set $laptop "eDP-1"
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
-
-output "Goldstar Company Ltd LG HDR WQHD+ 103NTRLGF334" pos 0 0
-output "Unknown 0x5B2D 0x00000000" pos 960 1600
