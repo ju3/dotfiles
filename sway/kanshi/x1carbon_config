@@ -1,0 +1,12 @@
+profile {
+	output "Goldstar Company Ltd LG HDR WQHD+ 103NTRLGF334" mode 3840x1600 position 0,0
+	output "Unknown 0x1411 0x00000000" mode 3840x2400 position 3840,0
+}
+
+profile {
+	output "Unknown 0x1411 0x00000000" mode 3840x2400 position 0,0
+}
+
+profile {
+	output "Goldstar Company Ltd LG HDR WQHD+ 103NTRLGF334" mode 3840x1600 position 0,0
+}

@@ -227,6 +227,8 @@ exec swayidle -w \
     before-sleep $lockcmd \
     after-resume 'sleep 2; swaymsg "output * dpms on"'
 
+exec kanshi
+
 #
 # Status Bar:
 #
